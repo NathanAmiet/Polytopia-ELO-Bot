@@ -199,8 +199,7 @@ class league(commands.Cog):
         player, _ = models.Player.get_by_discord_id(discord_id=ctx.author.id, discord_name=ctx.author.name, discord_nick=ctx.author.nick, guild_id=ctx.guild.id)
         if not player:
             # Matching guild member but no Player or DiscordMember
-            return await ctx.send(f'*{ctx.author.name}* was found in the server but is not registered with me. '
-                f'Players can be register themselves with `{ctx.prefix}setcode POLYTOPIA_CODE`.')
+            return await ctx.send(f'You haven't registered your Polytopia friend code yet! Type `{ctx.prefix}setcode YOUR_CODE_HERE`.')
 
         on_team, player_team = models.Player.is_in_team(guild_id=ctx.guild.id, discord_member=ctx.author)
         if on_team:
